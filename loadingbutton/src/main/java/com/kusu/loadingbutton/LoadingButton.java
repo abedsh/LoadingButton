@@ -11,7 +11,9 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
+
 import androidx.appcompat.widget.AppCompatButton;
+
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -328,6 +330,7 @@ public class LoadingButton extends AppCompatButton implements View.OnTouchListen
             mAnimatedDrawable.draw(canvas);
         }
     }
+    
 
     private void setLoading(boolean loading) {
         isLoading = loading;
@@ -335,10 +338,12 @@ public class LoadingButton extends AppCompatButton implements View.OnTouchListen
             drawIndeterminateProgress(mcanvas);
             setText("");
         } else {
-            if (text.length() != 0)
-                setText(text);
+            if (text.length() != 0) setText(text);
+            refresh();
+            mAnimatedDrawable = null;
         }
     }
+
 
     public String getButtonText() {
         return text;
