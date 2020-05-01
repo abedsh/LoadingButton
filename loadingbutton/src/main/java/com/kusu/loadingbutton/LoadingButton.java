@@ -330,7 +330,7 @@ public class LoadingButton extends AppCompatButton implements View.OnTouchListen
             mAnimatedDrawable.draw(canvas);
         }
     }
-    
+
 
     private void setLoading(boolean loading) {
         isLoading = loading;
@@ -355,9 +355,11 @@ public class LoadingButton extends AppCompatButton implements View.OnTouchListen
 
     public void showLoading() {
         setLoading(true);
+        setClickable(false);
     }
 
     public void hideLoading() {
         setLoading(false);
+        setClickable(true);
     }
 }
